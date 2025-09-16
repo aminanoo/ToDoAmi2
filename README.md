@@ -45,5 +45,14 @@ wails dev
 ```
 
 ## Example of working App
+First open:
 
+<img src="./img/pic1.png">
 
+Tasks added:
+
+<img src="./img/pic2.png">
+
+Filter:
+
+<img src="./img/pic3.png">
