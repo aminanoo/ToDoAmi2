@@ -5,7 +5,7 @@
 
   // dynamic store of tasks
   const tasks = writable([]);
-  let priority = "Medium";
+  let priority = "medium";
   let newTask = ""; 
   let statusFilter = "all";
 
@@ -45,19 +45,6 @@
     return Date.now().toString();
   };
 
-  function getPriorityColor(priority) {
-    switch(priority) {
-      case 'high':
-        return 'red';   // High priority color
-      case 'medium':
-        return 'orange'; // Medium priority color
-      case 'low':
-        return 'green'; // Low priority color
-      default:
-        return 'gray';  // Default color for unknown priority
-    }
-  }
-
   // adding task func (back to your original approach)
   const addTask = async () => {
     if (newTask.trim()) {  // input validation
@@ -96,9 +83,9 @@
     <label>
       Priority
       <select bind:value={priority}>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
       </select>
     </label>
 
@@ -123,10 +110,11 @@
     {#each filteredTasks as task (task.id)}
       <li
       class:completed={task.isCompleted}
-      class={getPriorityColor(task.priority)}
+      class={task.priority}
+      style="background-color: {task.priority}"
       >
         <span class="task-content">
-          {task.title} - Priority: {task.priority}
+          {task.title}      ({task.priority})
         </span>
         <div class="task-actions">
           <button on:click={() => toggleCompletion(task)}>
@@ -150,7 +138,17 @@
     padding: 20px;
   }
 
-  
+  .low {
+    background-color: rgba(156, 202, 96, 0.623)
+  }
+
+  .medium {
+    background-color: rgba(219, 190, 95, 0.781)
+  }
+
+  .high {
+    background-color: rgba(230, 125, 118, 0.781)
+  }
 
   form {
     display: flex;
@@ -220,7 +218,7 @@
 
   li.completed {
     opacity: 0.7;
-    background-color: #e0d2aa;
+    background-color: #8b8b8a;
   }
 
   li.completed .task-content {

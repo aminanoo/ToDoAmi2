@@ -1,4 +1,4 @@
-module ToDoAmi
+module ToDoAmi2
 
 go 1.23
 
