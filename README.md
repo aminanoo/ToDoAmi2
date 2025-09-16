@@ -53,6 +53,10 @@ Tasks added:
 
 <img src="./img/pic2.png">
 
-Filter:
+Filtering by completeness:
 
 <img src="./img/pic3.png">
+
+Sorting by priority (by Default tasks are sorted by adding date): 
+
+<img src="./img/pic4.png">
