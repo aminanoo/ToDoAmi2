@@ -8,12 +8,20 @@
   let priority = "medium";
   let newTask = ""; 
   let statusFilter = "all";
+  let sortByPriority = false;
 
   // Reactive filtered tasks
-  $: filteredTasks = $tasks.filter(task => {
+  $: filteredTasks = $tasks
+  .filter(task => {
     if (statusFilter === "all") return true;
     if (statusFilter === "done") return task.isCompleted;
     if (statusFilter === "todo") return !task.isCompleted;
+  })
+  .sort((a, b) => {
+    if (!sortByPriority) return 0; // no sorting if toggle is off
+
+    const priorityOrder = { high: 3, medium: 2, low: 1 };
+    return priorityOrder[b.priority] - priorityOrder[a.priority];
   });
 
   onMount(async () => {
@@ -102,6 +110,12 @@
     </button>
     <button class:active={statusFilter === "done"} on:click={() => statusFilter = "done"}>
       Done ({$tasks.filter(t => t.isCompleted).length})
+    </button>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <button on:click={() => sortByPriority = !sortByPriority}>
+      {sortByPriority ? "Unsort Priority" : "Sort by Priority"}
     </button>
   </div>
 

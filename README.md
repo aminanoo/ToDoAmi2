@@ -1,16 +1,49 @@
 # README
+## TO-DO LIST
+by Amina Yerdes, for DMARK
 
-## About
+Приложение Todo List, реализованное с использованием Wails (Go + JS Svelte). Позволяет создавать задачи с приоритетами и фильтровать, отмечать как выполненные, удалять и хранить данные локально.
 
-This is the official Wails Svelte template.
+## Стек технологий
 
-## Live Development
+- Backend: Go + Wails
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+- Frontend: Svelte JS, HTML, CSS
 
-## Building
+- Хранение состояния: json
 
-To build a redistributable, production mode package, use `wails build`.
+##  Функционал
+Основные возможности
+1. Создание задач
+    - Ввод названия и описания задачи.
+    - Установка приоритета (low/mdeium/high).
+2. Отображение задач
+    - Список всех задач на экране.
+    - Зачеркивание текста выполненных задач.
+    - Цвет в зависимости от приоритета
+4. Удаление
+    - Удаление задачи без подтверждения.
+5. Фильтрация и сортировка
+    - Фильтрация по статусу:
+        - Все
+        - Активные
+        - Выполненные
+    - Сортировка по дате создания и приоритету.
+6. Тема
+    - Поддержка 1 темы.
+## How to run?
+### Clone repository
+```bash
+    git clone git@github.com:aminanoo/ToDoAmi2.git
+    cd ToDoAmi2
+```
+
+### Running App
+
+```bash
+wails dev
+```
+
+## Example of working App
+
+
